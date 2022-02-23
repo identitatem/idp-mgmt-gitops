@@ -4,7 +4,7 @@ This application will deploy the Identity Configuration Management for Kubernete
 
 ## Deploying this Application
 
-To deploy this application, simply `oc apply -k ./gitops-applications/identity-configuration-management-for-kubernetes` from the root of this project (after configuring your github.secret as described in the [README](../gitops-applications/identity-configuration-management-for-kubernetes/README.md)).  This will _only_ deploy the operator using a pre-GA, OpenShift 4.9-friendly version.  You'll need to do some postinstall steps to configure the AuthRealm.  
+To deploy this application, simply `oc apply -k ./gitops-applications/identity-configuration-management-for-kubernetes` from the root of this project (after configuring your github.secret as described in the [README](../gitops-applications/identity-configuration-management-for-kubernetes/README.md)).  You'll need to do some postinstall steps to configure the AuthRealm.  
 
 ## Post-install Steps
 
