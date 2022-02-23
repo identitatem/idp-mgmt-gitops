@@ -1,0 +1,27 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+namespace: idp-mgmt-config
+
+generatorOptions:
+  disableNameSuffixHash: true
+
+resources:
+- authrealm.yaml
+
+patchesJson6902:
+- target:
+    kind: AuthRealm
+    group: identityconfig.identitatem.io
+    version: v1alpha1
+    name: primary-authrealm
+    namespace: idp-mgmt-config
+  patch: |-
+    - op: replace
+      path: /spec/identityProviders/0/github/clientID
+      value: 'CLIENT_ID'
+
+secretGenerator:
+- name: github-oauth-clientsecret
+  envs:
+    - github-clientsecret.secret
